@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client'
-import { ApolloError, AuthenticationError } from "apollo-server";
+import { ApolloError, AuthenticationError,ForbiddenError } from "apollo-server";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken"
 
@@ -8,8 +8,22 @@ const prisma = new PrismaClient()
 
 const resolvers = {
     Query: {
-     users:async () => {
-        return await prisma.user.findMany()
+     users:async (parent,args,{userId}) => {
+        console.log(userId)
+        if(!userId){
+            throw new ForbiddenError("You must be logged in to view this page")
+        }
+        const users = await prisma.user.findMany({
+            where:{
+                id:{
+                    not:userId//we will get all the loggedout User
+                }
+            },
+            orderBy:{
+                createdAt:"desc"
+            }
+        });
+        return users;
      }
     },
 
