@@ -1,1 +1,33 @@
+ *{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+ }
  
+ .usercard{
+    background-color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    text-transform: capitalize;
+
+ }
+ .usercard:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    background-color: rgb(240, 237, 196);
+ }
+ .message-box{
+    background-color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+   
+    transition: 0.3s;
+ }
+ .message-box:hover{
+    background-color: rgb(240, 237, 196);
+ }
