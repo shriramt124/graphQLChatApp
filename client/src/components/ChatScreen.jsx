@@ -2,19 +2,41 @@ import {
   AppBar,
   Avatar,
   Box,
-  Button,
-  IconButton,
+ 
+  Stack,
+ 
   TextField,
   Toolbar,
   Typography,
 } from "@mui/material";
 import { useParams } from "react-router-dom";
 import MessageCard from "./MessageCard";
-import { useEffect, useState } from "react";
+import { useMutation, useQuery } from "@apollo/client";
+import {  GET_MESSAGE } from "../graphql/queries";
+import { useState } from "react";
+import SendIcon from '@mui/icons-material/Send';
+import { SEND_MESSAGE } from "../graphql/mutations";
+ 
 
 function ChatScreen() {
   const { id, name } = useParams();
-  
+  const [text,setText] = useState("")
+  const [messages,setMessages] = useState([])
+  const {data,loading,error}  = useQuery(GET_MESSAGE,{
+    variables:{
+      receiverId:+id
+    },
+    onCompleted:(data)=>{
+      setMessages(data?.messagesByUser);
+    }
+  })
+ const [sendMessage]= useMutation(SEND_MESSAGE,{
+   onCompleted:(data)=>{
+    setMessages(prev=>[...prev,data.createMessage])
+    setText("")
+   }
+ });
+
   return (
     <Box flexGrow={1} display="flex" flexDirection="column">
       <AppBar
@@ -35,10 +57,15 @@ function ChatScreen() {
         padding="20px"
         sx={{ overflowY: "scroll" }}
       >
-        <MessageCard text="hello how are you" date="1234" direction="start" />
-        <MessageCard text="hello how are you" date="1234" direction="start" />
-        <MessageCard text="hello how are you" date="1234" direction="end" />
+        {
+        // console.log(data.messagesByUser[0].text)
+        loading ? <Typography variant="h5" >loading ...</Typography> :
+        messages?.map((item)=>(
+          <MessageCard key={item.id} text={item.text} date={item.createdAt} direction={item.receiverId ===+id ? "end":"start"}/>
+        ))
+        }
       </Box>
+      <Stack direction="row"> 
       <TextField
         placeholder="Enter a message "
         variant="standard"
@@ -46,7 +73,16 @@ function ChatScreen() {
         multiline
         rows={2}
         sx={{ padding: "10px" }}
+        onChange={(e) => setText(e.target.value)}
+        value={text}
       />
+      <SendIcon fontSize="large" onClick={()=>sendMessage({
+        variables:{
+          text,
+          receiverId:+id
+        }
+      })} sx={{cursor:"pointer"}}/>
+      </Stack>
     </Box>
   );
 }

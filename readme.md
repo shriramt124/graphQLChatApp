@@ -43,3 +43,6 @@ GraphQL offers more flexibility, control, and efficiency in data fetching compar
 * npx prisma studio --> it will show all the tables in our database created by prisma
 
 * in graphql there is no way of attaching different    status codes like the rest api 
+
+
+

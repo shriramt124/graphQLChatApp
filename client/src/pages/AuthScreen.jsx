@@ -25,7 +25,7 @@ function AuthScreen({setLoggedIn}) {
         console.log(data);
          localStorage.setItem("jwt",data.signInUser.token)
          setLoggedIn(true)
-         authForm.current.reset()
+         
       },
 
     });
