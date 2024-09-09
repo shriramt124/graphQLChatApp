@@ -46,3 +46,34 @@ GraphQL offers more flexibility, control, and efficiency in data fetching compar
 
 
 
+# GraphQL Subscriptions
+
+GraphQL Subscriptions allow real-time communication between a client and a server. They enable the server to push data to clients whenever a specified event occurs, without the need for clients to repeatedly request updates.
+
+## Key Concepts
+
+- **Long-Lived Operation**: Unlike queries and mutations, subscriptions maintain an open connection to the server.
+- **WebSocket Communication**: Subscriptions are usually implemented over WebSockets, enabling bidirectional communication.
+- **Server-Push Model**: The server pushes data to clients when an event occurs.
+
+## Use Cases
+
+- Real-time applications (e.g., chat apps, multiplayer games).
+- Collaborative tools (e.g., shared documents, whiteboards).
+- Real-time dashboards (e.g., stock prices, sensor data).
+- Notifications (e.g., new messages, comments, or likes).
+
+## Example: Chat Application
+
+**Schema Definition:**
+```graphql
+type Subscription {
+  messageAdded: Message
+}
+
+type Message {
+  id: ID!
+  content: String!
+  author: String!
+  timestamp: String!
+}
