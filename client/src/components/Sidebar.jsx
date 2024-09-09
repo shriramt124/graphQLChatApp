@@ -3,7 +3,7 @@ import UserCard from "./UserCard"
 import LogoutIcon from '@mui/icons-material/Logout';
 
 
-function Sidebar() {
+function Sidebar({setLoggedIn}) {
     const users = [
         {
             id:1,
@@ -21,6 +21,12 @@ function Sidebar() {
             lastName:"tiwari"
         }
     ]
+    const handleLogout =()=>{
+        localStorage.removeItem("jwt")
+        setLoggedIn(false);
+        
+        
+    }
   return (
     <Box 
     backgroundColor="#787575"
@@ -33,7 +39,7 @@ function Sidebar() {
         <Typography variant="h6" sx={{textAlign:"center",textTransform:"capitalize",color:"orange",fontSize:"28px"}}>
             chat
         </Typography>
-        <LogoutIcon  sx={{color:"orange",cursor:"pointer"}}/>
+        <LogoutIcon onClick={handleLogout}  sx={{color:"orange",cursor:"pointer"}}/>
         </Stack>
         
         <Divider />

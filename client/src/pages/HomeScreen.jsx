@@ -5,21 +5,17 @@ import AuthScreen from "./AuthScreen"
 import Welcome from "../components/Welcome"
 import ChatScreen from "../components/ChatScreen"
 
-const AllRoutes = () => {
-    return (
-        <Routes>
-            <Route path="/" element={<Welcome />} />
-            <Route path="/:id/:name" element={<ChatScreen />} />
-        </Routes>
-    )
-}
-function HomeScreen() {
+ 
+function HomeScreen({setLoggedIn}) {
   return (
     <Box 
     display="flex"
     >
-        <Sidebar />
-        <AllRoutes/>
+        <Sidebar setLoggedIn={setLoggedIn}/>
+        <Routes>
+            <Route path="/" element={<Welcome />} />
+            <Route path="/:id/:name" element={<ChatScreen />} />
+        </Routes>
     </Box>
   )
 }

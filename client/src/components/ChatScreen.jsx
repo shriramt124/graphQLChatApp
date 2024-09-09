@@ -10,10 +10,11 @@ import {
 } from "@mui/material";
 import { useParams } from "react-router-dom";
 import MessageCard from "./MessageCard";
+import { useEffect, useState } from "react";
 
 function ChatScreen() {
   const { id, name } = useParams();
-  console.log(id, name);
+  
   return (
     <Box flexGrow={1} display="flex" flexDirection="column">
       <AppBar
@@ -28,114 +29,15 @@ function ChatScreen() {
           <Typography variant="h6">{name.toLocaleUpperCase()}</Typography>
         </Toolbar>
       </AppBar>
-      <Box backgroundColor="#f6f0f0" height="83vh" padding="20px" sx={{overflowY:"scroll"}} >
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
-        <MessageCard text="hello how are you" date="1234" direction="start"/>
-          <MessageCard text="hello how are you" date="1234" direction="start"/>
-        <MessageCard text="hello how are you" date="1234" direction="end"/>
+      <Box
+        backgroundColor="#f6f0f0"
+        height="83vh"
+        padding="20px"
+        sx={{ overflowY: "scroll" }}
+      >
+        <MessageCard text="hello how are you" date="1234" direction="start" />
+        <MessageCard text="hello how are you" date="1234" direction="start" />
+        <MessageCard text="hello how are you" date="1234" direction="end" />
       </Box>
       <TextField
         placeholder="Enter a message "
