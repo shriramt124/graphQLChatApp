@@ -3,9 +3,10 @@ import UserCard from "./UserCard"
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useQuery } from "@apollo/client";
 import { GET_ALL_USERS } from "../graphql/queries";
-
+import {useNavigate} from "react-router-dom"
 
 function Sidebar({setLoggedIn}) {
+    const navigate = useNavigate()
     const {loading,error,data} = useQuery(GET_ALL_USERS)
     if(loading){
         return <Typography>Loading chats...</Typography>
@@ -14,11 +15,16 @@ function Sidebar({setLoggedIn}) {
     if(error){
         console.log(error.message);
     }
- 
+   
     const handleLogout =()=>{
+        
+        
         localStorage.removeItem("jwt")
+        navigate("/",{replace:true})
         setLoggedIn(false);
         
+        
+         
         
     }
   return (
