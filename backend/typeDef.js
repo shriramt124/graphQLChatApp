@@ -1,5 +1,5 @@
  
-import { gql } from 'apollo-server';
+import { gql } from 'apollo-server-express';
 
 
 //we make the id mandetory by writing the exclamation behind
@@ -44,6 +44,10 @@ const typeDefs = gql`
       lastName:String
       email:String
 
+      }
+
+      type Subscription{
+            messageAdded:Message
       }
 `
 
