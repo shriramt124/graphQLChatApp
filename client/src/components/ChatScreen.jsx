@@ -31,16 +31,12 @@ function ChatScreen() {
       setMessages(data?.messagesByUser);
     }
   })
- const [sendMessage]= useMutation(SEND_MESSAGE,{
-  //  onCompleted:(data)=>{
-  //   setMessages(prev=>[...prev,data.createMessage])
-  //   setText("")
-   //}
- });
+ const [sendMessage]= useMutation(SEND_MESSAGE);
  const {data:subData} = useSubscription(MSG_SUB,{
-  onSubscriptionData:({subscriptionData:{data}}) => {
-    setMessages(prev=>[...prev,data.messageAdded])
-  }
+onData : ({data}) => {
+  console.log(data.data)
+  setMessages(prev=>[...prev,data.data.messageAdded])
+}
  })
        
   return (

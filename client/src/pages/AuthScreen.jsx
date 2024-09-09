@@ -25,7 +25,6 @@ function AuthScreen({setLoggedIn}) {
         console.log(data);
          localStorage.setItem("jwt",data.signInUser.token)
          setLoggedIn(true)
-         
       },
 
     });
@@ -52,7 +51,9 @@ function AuthScreen({setLoggedIn}) {
     );
   }
   const handleSubmit = (e) => {
+    
     e.preventDefault();
+    console.log(formData);
     if (showLogin) {
       //signin
       loginUser({
@@ -67,6 +68,7 @@ function AuthScreen({setLoggedIn}) {
           userNew: formData,
         },
       });
+      setFormData({});
     }
   };
 

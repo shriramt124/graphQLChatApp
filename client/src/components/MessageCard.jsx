@@ -17,7 +17,7 @@ function MessageCard({text,date,direction}) {
       hour: '2-digit',
       minute: '2-digit',
       second: '2-digit',
-      hour12: false, // Use 24-hour format
+      hour12: true, // Use 24-hour format
     };
   
     // Return the formatted date and time

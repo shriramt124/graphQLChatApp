@@ -5,7 +5,7 @@ import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
-  createHttpLink,
+ 
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 
@@ -32,12 +32,12 @@ const authLink = setContext((_, { headers }) => {
 
 
 const httpLink = new HttpLink({
-  uri: 'http://localhost:4000/graphql',
+  uri: 'https://apollochatbackend.up.railway.app/graphql',
 });
 
 const wsLink = new GraphQLWsLink(
   createClient({
-    url: 'ws://localhost:4000/graphql',
+    url: 'wss://apollochatbackend.up.railway.app/graphql',
   }),
 );
 
